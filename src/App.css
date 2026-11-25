@@ -1,0 +1,272 @@
+:root {
+  --mint: rgba(99, 254, 213, 0.7);
+  --mint-solid: #63fed5;
+  --black: #000;
+  --bubble-them: lightgrey;
+  --bubble-me: rgb(176, 167, 255);
+  --radius: 10px;
+  --panel: rgba(255, 255, 255, 0.85);
+  --panel-line: rgba(0, 0, 0, 0.35);
+  --danger: #c62838;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#background {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  filter: blur(10px);
+  background-image: url('/mesh.gif');
+  background-size: cover;
+  object-fit: cover;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+.page {
+  height: 100dvh;
+  font-family: sans-serif;
+  color: black;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- lobby ---------- */
+
+.lobby {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  padding: 20px;
+}
+
+.lobby h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 42px;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.tagline {
+  margin: 0 0 18px;
+}
+
+.lobby form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.lobby input {
+  font-size: 16px;
+  padding: 10px 14px;
+  border: 2px solid black;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.8);
+  width: 240px;
+  text-align: center;
+}
+
+.lobby input:focus {
+  outline: 3px solid var(--bubble-me);
+}
+
+/* ---------- shared ---------- */
+
+button {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  border: 2px solid black;
+  background: var(--panel);
+  color: black;
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+button:hover {
+  background: var(--mint-solid);
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+button.primary {
+  background: black;
+  color: var(--mint-solid);
+  font-size: 16px;
+  padding: 10px 22px;
+}
+
+button.primary:hover {
+  background: #222;
+}
+
+button.danger {
+  border-color: var(--danger);
+  color: var(--danger);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.status {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  min-height: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hint {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  opacity: 0.65;
+}
+
+.hint.center {
+  text-align: center;
+}
+
+/* ---------- call page ---------- */
+
+.call header {
+  padding: 10px 18px;
+  border-bottom: 2px solid black;
+  background: rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.25);
+  transition:
+    background 0.2s,
+    box-shadow 0.2s;
+}
+
+.brand .dot.live {
+  background: #e6455a;
+  box-shadow: 0 0 0 3px rgba(230, 69, 90, 0.35);
+}
+
+.call main {
+  flex: 1;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+}
+
+.grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  align-content: start;
+  min-height: 0;
+}
+
+.tile {
+  position: relative;
+  border: 2px solid black;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--bubble-them);
+  transition:
+    box-shadow 0.15s,
+    border-color 0.15s;
+}
+
+.tile.speaking {
+  border-color: var(--mint-solid);
+  box-shadow:
+    0 0 0 3px var(--mint-solid),
+    0 0 24px -4px rgba(99, 254, 213, 0.9);
+}
+
+.tile video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #000;
+}
+
+.tile.mirrored video {
+  transform: scaleX(-1);
+}
+
+.tile .label {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.tile .placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.call footer {
+  padding: 12px 18px;
+  border-top: 2px solid black;
+  background: rgba(255, 255, 255, 0.4);
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.call footer button {
+  min-width: 96px;
+}
