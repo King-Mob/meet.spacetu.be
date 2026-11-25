@@ -16,7 +16,6 @@ export default function Lobby() {
     <div className="page">
       <main className="lobby">
         <h1>MeetJohn</h1>
-        <p className="tagline">one room, one call — John's personal meeting space</p>
         <form onSubmit={join}>
           <input
             autoFocus
@@ -29,7 +28,6 @@ export default function Lobby() {
             join the call
           </button>
         </form>
-        <p className="hint">whoever's here, is here — there's only one room.</p>
       </main>
     </div>
   );

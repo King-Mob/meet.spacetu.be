@@ -16,7 +16,7 @@
 
 #background {
   position: absolute;
-  z-index: -1;
+  z-index: -2;
   top: 0;
   left: 0;
   right: 0;
@@ -25,6 +25,17 @@
   background-image: url('/mesh.gif');
   background-size: cover;
   object-fit: cover;
+}
+
+#background-tint {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: skyblue;
+  opacity: 0.3;
 }
 
 #root {
@@ -138,16 +149,6 @@ button.danger {
   gap: 8px;
 }
 
-.hint {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  opacity: 0.65;
-}
-
-.hint.center {
-  text-align: center;
-}
-
 /* ---------- call page ---------- */
 
 .call header {
@@ -210,6 +211,9 @@ button.danger {
   border-radius: var(--radius);
   overflow: hidden;
   aspect-ratio: 4 / 3;
+  height: 100%;
+  width: auto;
+  justify-self: start;
   background: var(--bubble-them);
   transition:
     box-shadow 0.15s,
