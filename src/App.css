@@ -22,7 +22,7 @@
   right: 0;
   bottom: 0;
   filter: blur(10px);
-  background-image: url('/mesh.gif');
+  background-image: url("/mesh.gif");
   background-size: cover;
   object-fit: cover;
 }
@@ -35,7 +35,7 @@
   right: 0;
   bottom: 0;
   background-color: skyblue;
-  opacity: 0.3;
+  opacity: 0.6;
 }
 
 #root {
@@ -65,7 +65,7 @@
 }
 
 .lobby h1 {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-weight: 700;
   font-size: 42px;
   letter-spacing: -0.02em;
@@ -141,7 +141,7 @@ button.danger {
 }
 
 .status {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: "IBM Plex Mono", monospace;
   font-size: 12px;
   min-height: 16px;
   display: flex;
@@ -163,7 +163,7 @@ button.danger {
 }
 
 .brand {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-weight: 700;
   font-size: 18px;
   letter-spacing: -0.02em;
@@ -242,7 +242,7 @@ button.danger {
   position: absolute;
   left: 8px;
   bottom: 8px;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: "IBM Plex Mono", monospace;
   font-size: 11px;
   background: rgba(0, 0, 0, 0.75);
   color: white;
@@ -256,7 +256,7 @@ button.danger {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-size: 32px;
   font-weight: 600;
 }
