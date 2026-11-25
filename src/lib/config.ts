@@ -1,4 +1,4 @@
-export const LK_URL = 'wss://project-133bpm-s6d3ajm5.livekit.cloud';
+export const LK_URL = 'wss://meet-spacetu-be-kuqjyaay.livekit.cloud';
 
 // One personal meeting at a time, so the room name is fixed.
 export const ROOM_NAME = 'meetjohn';
