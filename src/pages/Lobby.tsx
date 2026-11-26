@@ -1,21 +1,23 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Lobby() {
   const navigate = useNavigate();
-  const [name, setName] = useState(() => sessionStorage.getItem('meetjohn-name') ?? '');
+  const [name, setName] = useState(
+    () => sessionStorage.getItem("meetjohn-name") ?? "",
+  );
 
   const join = (e: React.FormEvent) => {
     e.preventDefault();
     const trimmed = name.trim();
-    sessionStorage.setItem('meetjohn-name', trimmed || 'guest');
-    navigate('/call');
+    sessionStorage.setItem("meetjohn-name", trimmed || "guest");
+    navigate("/call");
   };
 
   return (
     <div className="page">
       <main className="lobby">
-        <h1>MeetJohn</h1>
+        <h1>Meet, by John</h1>
         <form onSubmit={join}>
           <input
             autoFocus
