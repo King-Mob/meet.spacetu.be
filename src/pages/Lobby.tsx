@@ -7,10 +7,12 @@ export default function Lobby() {
     () => sessionStorage.getItem("meetjohn-name") ?? "",
   );
 
+
+  const canJoin = name.trim().length > 0;
   const join = (e: React.FormEvent) => {
     e.preventDefault();
-    const trimmed = name.trim();
-    sessionStorage.setItem("meetjohn-name", trimmed || "guest");
+    if (!canJoin) return;
+    sessionStorage.setItem("meetjohn-name", name.trim());
     navigate("/call");
   };
 
@@ -26,7 +28,7 @@ export default function Lobby() {
             maxLength={30}
             onChange={(e) => setName(e.target.value)}
           />
-          <button type="submit" className="primary">
+          <button type="submit" className="primary" disabled={!canJoin}>
             join the call
           </button>
         </form>

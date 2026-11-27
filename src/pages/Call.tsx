@@ -67,7 +67,14 @@ export default function Call() {
       </header>
 
       <main>
-        <div className="grid">
+        <div
+          className="grid"
+          style={
+            tiles.size >= 4
+              ? { gridTemplateColumns: `repeat(${Math.ceil(tiles.size / 2)}, minmax(240px, 1fr))` }
+              : undefined
+          }
+        >
           {Array.from(tiles.values()).map((tile) => (
             <ParticipantTile key={tile.identity} {...tile} />
           ))}
